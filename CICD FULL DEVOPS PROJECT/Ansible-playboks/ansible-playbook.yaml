@@ -1,0 +1,16 @@
+## ANSIBLE PLAYBOOK YAML SCRIPT TO INSTALL AND RUN NGINX IN OTHER SERVER USING PASSWORDLESS AUTH##
+---
+- name: to install and run nginx
+  hosts: all ## This will apply to all the servers in INVENTORY FILE##
+  become: root ## THIS WILL LET THE YAML SCRIPT EXCUTE THROUGH ROT USER##
+
+  tasks:
+   -name: install nginx
+    apt: ##MODULE NAME##
+      name: nginx
+      state: present
+  - name: start nginx
+     service: 
+      name: nginx
+      state: started
+
